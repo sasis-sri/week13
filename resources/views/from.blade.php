@@ -30,6 +30,6 @@
             @enderror
         </div>
         <input type="submit" value="บันทึก" class="btn btn-primary my-3">
-        <a href="/blog2" class="btn btn-secondary">บทความทั้งหมด</a>
+        <a href="/author/blog2" class="btn btn-secondary">บทความทั้งหมด</a>
     </form>
 @endsection

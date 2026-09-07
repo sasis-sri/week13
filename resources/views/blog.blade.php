@@ -21,7 +21,7 @@
                     @foreach ($blogs as $item)
                         <tr>
                             <td>{{ $item->title }}</td>
-                            <td>{{Str::limit($item->content, 100)}}</td>
+                            <td>{{Str::limit($item->content, 500)}}</td>
                             <td>
                             <!-- resources/views/blog.blade.php -->
     @if($item->status)
@@ -31,7 +31,7 @@
     @endif
                             </td>
                             <td><a href="{{route('edit', $item->id)}}" class="btn btn-warning">แก้ไข</a></td>
-                            <td><a href="{{ route('delete', $item->id) }}" class="btn btn-danger" onclick="return confirm('วิว คุณต้องการลบ {{$item->title}} ออกจากหัวใจ ใช่หรือไม่?')" >ลบ</a>
+                            <td><a href="{{ route('delete', $item->id) }}" class="btn btn-danger" onclick="return confirm('ลูกแก้ว คุณต้องการลบ {{$item->title}} ออกจากหัวใจ ใช่หรือไม่?')" >ลบ</a>
                             </td>
                         </tr>
                     @endforeach

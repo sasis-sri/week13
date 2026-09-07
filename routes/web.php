@@ -37,12 +37,19 @@ Route::get('/blog2', function () {
     ];
     return view("blog2", compact('blog2'));
     })->name("blog2");
-Route::get('/about2', [AdminController::class, 'about2'] )->name("about2");
-Route::get('/blog2', [AdminController::class, 'blog2'] )->name("blog2");
-Route::get('/create', [AdminController::class, 'create'] )->name("create");
 
-Route::get('/from', [AdminController::class, 'insert']);
-Route::post('/from', [AdminController::class, 'insert']);
+// จัดระเบียบกลุ่ม URL ที่เริ่มต้นด้วย /admin
+Route::prefix('admin')->group(function () {
+    Route::get('/users', [UserController::class, 'index']); 
+    Route::get('/settings', [SettingController::class, 'index']); 
+}); 
+
+Route::get('author/about2', [AdminController::class, 'about2'] )->name("about2");
+Route::get('author/blog2', [AdminController::class, 'blog2'] )->name("blog2");
+Route::get('author/create', [AdminController::class, 'create'] )->name("create");
+
+Route::get('author/from', [AdminController::class, 'insert']);
+Route::post('author/from', [AdminController::class, 'insert']);
 
 Route::get('/delete/{id}', [AdminController::class, 'delete'])->name('delete');
 Route::get('/change/{id}', [AdminController::class, 'change'])->name('change');
